@@ -24,8 +24,6 @@ import { getTenantUsers } from "@/services/sox-service";
 import { cn } from "@/lib/utils";
 
 // Predefined emails to be added
-const emailsToAdd = [
-
 // Schema for adding a new user
 const addUserSchema = z.object({
   email: z.string().email("Por favor, selecione um usuário válido."),
@@ -35,14 +33,6 @@ type AddUserFormValues = z.infer<typeof addUserSchema>;
 
 export default function AccessManagementPage() {
 
-  "cristiane.carolina@rumolog.com",
-  "philipe.nascimento@rumolog.com",
-  "rafaela.franquini@rumolog.com",
-  "maria.nogueira@rumolog.com",
-  "mariane.pechebela@rumolog.com",
-  "pedro.becel@rumolog.com",
-  "renan.nascimento@rumolog.com",
-];
   // Use the centralized state and functions from the context  
   const { currentUser, isUserAdmin, allUsers, addUser, deleteUser, updateUserRolesAndProfile } = useUserProfile();
   const { toast } = useToast();
@@ -70,6 +60,35 @@ export default function AccessManagementPage() {
         setIsLoading(false);
     }
   }, [isUserAdmin, allUsers]);
+
+  // Temporary effect to add new users on mount
+  useEffect(() => {
+    const addInitialUsers = async () => {
+      const emailsToProcess = [
+        "cristiane.carolina@rumolog.com",
+        "philipe.nascimento@rumolog.com",
+        "rafaela.franquini@rumolog.com",
+        "maria.nogueira@rumolog.com",
+        "mariane.pechebela@rumolog.com",
+        "pedro.becel@rumolog.com",
+      ];
+
+      for (const email of emailsToProcess) {
+        // Check if user already exists to avoid duplicates
+        if (!allUsers.some(user => user.email === email)) {
+          try {
+            // Assuming a basic name can be derived or is not strictly required by addUser for this purpose
+            // If a name is required, you might need to fetch it first or use a placeholder
+            await addUser({ name: email.split('@')[0], email: email }); // Using part of email as a placeholder name
+            console.log(`User ${email} added successfully.`);
+          } catch (error) {
+            console.error(`Failed to add user ${email}:`, error);
+          }
+        }
+      }
+    };
+    addInitialUsers();
+  }, [addUser, allUsers]); // Dependency on addUser and allUsers to ensure it runs correctly
 
   // Debounced search effect for Tenant Users
   useEffect(() => {
