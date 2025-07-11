@@ -23,6 +23,8 @@ import type { MockUser, TenantUser } from "@/data/mock-data";
 import { getTenantUsers } from "@/services/sox-service";
 import { cn } from "@/lib/utils";
 
+// Predefined emails to be added
+const emailsToAdd = [
 
 // Schema for adding a new user
 const addUserSchema = z.object({
@@ -32,7 +34,16 @@ const addUserSchema = z.object({
 type AddUserFormValues = z.infer<typeof addUserSchema>;
 
 export default function AccessManagementPage() {
-  // Use the centralized state and functions from the context
+
+  "cristiane.carolina@rumolog.com",
+  "philipe.nascimento@rumolog.com",
+  "rafaela.franquini@rumolog.com",
+  "maria.nogueira@rumolog.com",
+  "mariane.pechebela@rumolog.com",
+  "pedro.becel@rumolog.com",
+  "renan.nascimento@rumolog.com",
+];
+  // Use the centralized state and functions from the context  
   const { currentUser, isUserAdmin, allUsers, addUser, deleteUser, updateUserRolesAndProfile } = useUserProfile();
   const { toast } = useToast();
   

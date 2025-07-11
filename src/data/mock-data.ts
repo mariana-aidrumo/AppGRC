@@ -5,7 +5,6 @@ export interface MockUser {
     id: string;
     name: string;
     email: string;
-    password: string; // Apenas para simulação, não use senhas em texto plano em uma aplicação real!
     roles: string[]; // Ex: ['admin'], ['control-owner']
     activeProfile: UserProfileType; // Perfil ativo do usuário
     controlsOwned?: string[]; // IDs dos controles que este usuário possui
@@ -13,11 +12,18 @@ export interface MockUser {
 
 export const mockUsers: MockUser[] = [
     { id: 'user-adm-1', name: 'Carlos Ferreira', email: 'usuario@adm.com', password: 'Senha123', roles: ['admin'], activeProfile: "Administrador de Controles Internos" },
-    { id: 'user-adm-2', name: 'Mariana Costa', email: 'mariana.costa@rumolog.com', password: 'Senha123', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
-    { id: 'user-owner-1', name: 'João da Silva', email: 'usuario@owner.com', password: 'Senha123', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: ['1'] },
-    { id: 'user-both-1', name: 'Beatriz Santos', email: 'beatriz@rumolog.com', password: 'Senha123', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos", controlsOwned: ['1'] },
-    { id: 'user-other-1', name: 'Aline Silva', email: 'aline@example.com', password: 'Senha123', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: ['1'] },
-    { id: 'user-other-2', name: 'Pedro Oliveira', email: 'bob@example.com', password: 'Senha123', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: [] },
+    { id: 'user-adm-2', name: 'Mariana Costa', email: 'mariana.costa@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-owner-1', name: 'João da Silva', email: 'usuario@owner.com', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: ['1'] },
+    { id: 'user-both-1', name: 'Beatriz Santos', email: 'beatriz@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos", controlsOwned: ['1'] },
+    { id: 'user-other-1', name: 'Aline Silva', email: 'aline@example.com', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: ['1'] },
+    { id: 'user-other-2', name: 'Pedro Oliveira', email: 'bob@example.com', roles: ['control-owner'], activeProfile: "Dono do Controle", controlsOwned: [] },
+    { id: 'user-rumolog-1', name: 'Cristiane Carolina', email: 'cristiane.carolina@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-2', name: 'Philipe Nascimento', email: 'philipe.nascimento@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-3', name: 'Rafaela Franquini', email: 'rafaela.franquini@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-4', name: 'Maria Nogueira', email: 'maria.nogueira@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-5', name: 'Mariane Pechebela', email: 'mariane.pechebela@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-6', name: 'Pedro Becel', email: 'pedro.becel@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
+    { id: 'user-rumolog-7', name: 'Renan Nascimento', email: 'renan.nascimento@rumolog.com', roles: ['admin', 'control-owner'], activeProfile: "Administrador de Controles Internos" },
 ];
 
 export const mockSoxControls: SoxControl[] = [
