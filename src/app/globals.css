@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 206 27% 92%; /* #E5EBEE */
+    --foreground: 206 100% 8%; /* Azul Escuro #001728 */
+
+    --card: 0 0% 100%; /* Branco */
+    --card-foreground: 206 100% 8%; /* Azul Escuro #001728 */
+
+    --popover: 0 0% 100%; /* Branco */
+    --popover-foreground: 206 100% 8%; /* Azul Escuro #001728 */
+
+    --primary: 207 100% 20%; /* Azul Primário Rumo #003865 */
+    --primary-foreground: 0 0% 100%; /* Branco */
+
+    --secondary: 201 79% 55%; /* Azul Claro #32A6E6 */
+    --secondary-foreground: 206 100% 8%; /* Azul Escuro #001728 */
+
+    --muted: 206 27% 92%; /* #E5EBEE */
+    --muted-foreground: 203 10% 40%; /* Cinza Médio #5A6870 (escurecido de #8A98A0 para melhor contraste) */
+
+    --accent: 21 92% 62%; /* Laranja #F78344 */
+    --accent-foreground: 0 0% 100%; /* Branco */
+
+    --destructive: 0 72% 51%; /* Vermelho Destrutivo (padrão) */
+    --destructive-foreground: 0 0% 98%; /* Branco para texto em Vermelho */
+
+    --border: 206 28% 80%; /* #C2CFD6 */
+    --input: 206 28% 80%; /* #C2CFD6 */
+    --ring: 207 100% 20%; /* Azul Primário Rumo #003865 para anéis de foco */
+
+    --radius: 0.75rem; /* Increased border radius */
+
+    /* Chart colors */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 206 100% 8%; /* Azul Muito Escuro #001728 */
+    --foreground: 206 27% 92%; /* Cinza Azulado Claro #E5EBEE */
+
+    --card: 205 100% 12%; /* Azul Escuro #00233F */
+    --card-foreground: 206 27% 92%; /* Cinza Azulado Claro #E5EBEE */
+
+    --popover: 205 100% 12%; /* Azul Escuro #00233F */
+    --popover-foreground: 206 27% 92%; /* Cinza Azulado Claro #E5EBEE */
+
+    --primary: 201 79% 55%; /* Azul Claro #32A6E6 */
+    --primary-foreground: 206 100% 8%; /* Azul Muito Escuro #001728 */
+
+    --secondary: 222 78% 64%; /* Azul Alternativo #5B8BEB */
+    --secondary-foreground: 206 100% 8%; /* Azul Muito Escuro #001728 */
+
+    --muted: 205 100% 15%; /* Azul Escuro-Médio #002C4A */
+    --muted-foreground: 206 28% 75%; /* Cinza Médio-Claro #B0BFCB (mais claro que o anterior #CAD6DD) */
+
+    --accent: 21 92% 62%; /* Laranja #F78344 */
+    --accent-foreground: 0 0% 100%; /* Branco */
+
+    --destructive: 0 65% 55%; /* Vermelho Destrutivo (ajustado para escuro) */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 205 100% 20%; /* Azul Médio #003B65 (o primário do light) */
+    --input: 205 100% 20%; /* Azul Médio #003B65 */
+    --ring: 201 79% 55%; /* Azul Claro #32A6E6 */
+
+    /* Chart colors */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
